@@ -14,12 +14,12 @@ spec:
         name: ory
         namespace: launchbox-system
       interval: 1m
-    values:
-      hydra:
-        config:
-          dsn: memory
-          urls:
-            self:
-              issuer: "https://my-hydra/"
-            login: "https://my-idp/login"
-            consent: "https://my-idp/consent"
+  values:
+    hydra:
+      config:
+        dsn: memory
+        urls:
+          self:
+            issuer: "https://my-hydra/"
+          login: "https://my-idp/login"
+          consent: "https://my-idp/consent"
