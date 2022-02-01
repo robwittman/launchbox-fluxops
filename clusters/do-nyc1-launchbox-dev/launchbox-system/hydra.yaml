@@ -1,0 +1,25 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: hydra
+  namespace: launchbox-system
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: hydra
+      sourceRef:
+        kind: HelmRepository
+        name: ory
+        namespace: launchbox-system
+      interval: 1m
+    values:
+      hydra:
+        config:
+          dsn: memory
+          urls:
+            self:
+              issuer: "https://my-hydra/"
+            login: "https://my-idp/login"
+            consent: "https://my-idp/consent"
